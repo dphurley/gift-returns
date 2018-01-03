@@ -7,7 +7,7 @@ const GiftSchema = new Schema(
   {
     title: {
       type: String,
-      required: [true, 'Gift title is required!']
+      required: [ true, 'Gift title is required!' ]
     },
     description: {
       type: String
@@ -28,12 +28,12 @@ const StoreSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, 'Store name is required!']
+      required: [ true, 'Store name is required!' ]
     },
     address: {
       type: String
     },
-    giftsToReturn: [GiftSchema]
+    giftsToReturn: [ GiftSchema ]
   },
   {
     timestamps: {}
@@ -44,27 +44,28 @@ const UserSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true, 'Username is required!']
+      required: [ true, 'Username is required!' ]
     },
     email: {
       type: String
     },
     firstName: {
       type: String,
-      required: [true, 'First name is required!']
+      required: [ true, 'First name is required!' ]
     },
     lastName: {
       type: String,
-      required: [true, 'Last name is required!']
+      required: [ true, 'Last name is required!' ]
     },
     photoUrl: {
       type: String,
       default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
     },
-    stores: [StoreSchema]
+    stores: [ StoreSchema ]
   },
   {
-    timestamps: {}
+    timestamps: {},
+    usePushEach: true
   }
 )
 
