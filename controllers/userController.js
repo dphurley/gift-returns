@@ -7,7 +7,7 @@ router.get('/', (request, response) => {
     .then((users) => {
       response.render('users/index', {
         users,
-        pageTitle: 'Banana'
+        pageTitle: 'Home'
       })
     })
     .catch((error) => {
