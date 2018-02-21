@@ -1,7 +1,7 @@
 const express = require('express')
-const router = express.Router({mergeParams: true})
+const router = express.Router({ mergeParams: true })
 
-const User = require('../db/models/User')
+const User = require('../models/User')
 
 router.get('/', (request, response) => {
   const userId = request.params.userId

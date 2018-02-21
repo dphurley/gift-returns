@@ -18,10 +18,7 @@ const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 // Mongo connection set-up
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI, {
-  useMongoClient: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 mongoose.connection.once('open', () => {
   console.log('Mongoose has connected to MongoDB!')
@@ -43,7 +40,7 @@ const storesController = require('./controllers/storesController')
 app.use('/users/:userId/stores', storesController)
 
 const giftsController = require('./controllers/giftsController')
-app.use('/users/:userId/stores/:storeId/gifts', giftsController )
+app.use('/users/:userId/stores/:storeId/gifts', giftsController)
 
 // Automatically redirect to the Users page on load
 app.get('/', (request, response) => {
