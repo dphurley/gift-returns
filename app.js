@@ -7,12 +7,11 @@ const app = express()
 
 app.set('view engine', 'hbs')
 
-app.use(express.static('public'))
+app.use(express.static(`${__dirname}/public`))
 
 const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))

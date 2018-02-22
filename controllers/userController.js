@@ -21,7 +21,7 @@ router.get('/new', (request, response) => {
 
 router.post('/', (request, response) => {
   const newUser = request.body
-  if(!newUser.photoUrl) {
+  if (!newUser.photoUrl) {
     newUser.photoUrl = 'http://www.fillmurray.com/g/300/300'
   }
 
@@ -79,7 +79,7 @@ router.put('/:userId', (request, response) => {
   const userId = request.params.userId
   const updatedUserInfo = request.body
 
-  User.findByIdAndUpdate(userId, updatedUserInfo, {new: true})
+  User.findByIdAndUpdate(userId, updatedUserInfo, { new: true })
     .then(() => {
       response.redirect(`/users/${userId}`)
     })
