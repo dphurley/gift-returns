@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mongodb:
+        image: mongo
+        ports:
+          - "27017:27017"
+  api:
+        image: node
+        ports:
+          - "4000:4000"
+        working_dir: /api
+        volumes:
+          - ./:/api
+        depends_on:
+          - mongodb
+        command: 'npm run dev'
+        environment:
+          - MONGODB_URI=mongodb://mongodb/gift-returns

@@ -33,21 +33,16 @@ mongoose.connection.on('error', (error) => {
 
 // Registering controllers
 const userController = require('./controllers/userController')
-app.use('/users', userController)
+app.use('/api/users', userController)
 
 const storesController = require('./controllers/storesController')
-app.use('/users/:userId/stores', storesController)
+app.use('/api/users/:userId/stores', storesController)
 
 const giftsController = require('./controllers/giftsController')
-app.use('/users/:userId/stores/:storeId/gifts', giftsController)
-
-// Automatically redirect to the Users page on load
-app.get('/', (request, response) => {
-  response.redirect('/users')
-})
+app.use('/api/users/:userId/stores/:storeId/gifts', giftsController)
 
 // Starting server
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}`)
 })
